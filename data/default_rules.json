@@ -1,0 +1,51 @@
+{
+  "profiles": [
+    {
+  "id": "strict",
+  "name": "Strict (Block High-Risk)",
+  "description": "Block high-risk interactions. Require Admin PIN to override.",
+  "riskThreshold": 60,
+  "requireAdminPinAboveThreshold": true,
+  "allowList": [],
+  "blockList": [],
+  "trackUsers": "anonymized",
+  "trackPrompts": "anonymized",
+  "sensitiveFieldWeights": { "password": 40, "email": 15, "credit": 50, "id": 30 },
+  "aiOnPageWeight": 25,
+  "aiDomainWeight": 60,
+  "internalSiteWeight": 15
+	},
+    {
+      "id": "confirm",
+      "name": "Confirm (Warn + Proceed)",
+      "description": "Warn on medium/high risk. User can proceed.",
+      "riskThreshold": 50,
+      "requireAdminPinAboveThreshold": false,
+      "allowList": [],
+      "blockList": [],
+      "trackUsers": "off",
+      "trackPrompts": "off",
+      "sensitiveFieldWeights": { "password": 30, "email": 10, "credit": 40, "id": 20 },
+      "aiOnPageWeight": 20,
+      "aiDomainWeight": 25,
+      "internalSiteWeight": 15
+    },
+    {
+      "id": "allow",
+      "name": "Allow (Light Touch)",
+      "description": "Only low-friction reminders and education tips.",
+      "riskThreshold": 100,
+      "requireAdminPinAboveThreshold": false,
+      "allowList": [],
+      "blockList": [],
+      "trackUsers": "off",
+      "trackPrompts": "off",
+      "sensitiveFieldWeights": { "password": 20, "email": 5, "credit": 25, "id": 10 },
+      "aiOnPageWeight": 10,
+      "aiDomainWeight": 10,
+      "internalSiteWeight": 5
+    }
+  ],
+  "adminPin": "",
+  "selectedProfileId": "confirm"
+}

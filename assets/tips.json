@@ -1,0 +1,9 @@
+[
+  "Avoid sharing secrets (API keys, credentials) with AI tools.",
+  "If unsure, ask your admin before using AI with sensitive data.",
+  "Copy-only the minimum context the AI needs.",
+  "Never paste customer PII into third-party AI services.",
+  "Prefer masked or synthetic data when possible.",
+  "Internal code and documents may be confidential—verify before sharing."
+]
+``

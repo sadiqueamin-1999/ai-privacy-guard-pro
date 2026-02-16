@@ -1,0 +1,29 @@
+/* overlay.css */
+.aipg-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+  z-index: 2147483000; display: flex; align-items: center; justify-content: center;
+}
+.aipg-modal {
+  width: 420px; max-width: 95vw; background: #fff; color: #1b1f23; border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  padding: 16px; outline: none; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+.aipg-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.logo { width:24px; height:24px; }
+.aipg-reason { margin: 6px 0 10px; }
+.aipg-risk { display:flex; align-items:center; justify-content:space-between; margin-bottom: 8px; }
+.badge { padding: 4px 8px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+.badge-low { background: #e8f5e9; color: #1b5e20; }
+.badge-med { background: #fff4e5; color: #8b3d00; }
+.badge-high { background: #fdecea; color: #611a15; }
+.aipg-details { font-size: 13px; color:#444; margin-bottom:10px; }
+.aipg-actions { display:flex; gap:10px; justify-content:flex-end; margin-bottom: 8px; }
+.btn { border:0; border-radius:8px; padding:10px 14px; cursor:pointer; font-weight:700; }
+.btn-primary { background:#0a66c2; color:#fff; }
+.btn-secondary { background:#e0e0e0; color:#111; }
+.aipg-checkboxes { display:flex; flex-direction:column; gap:6px; font-size: 13px; }
+.aipg-admin { margin-top: 10px; }
+.aipg-close { position:absolute; right:14px; top:10px; border:0; background:transparent; font-size:22px; cursor:pointer; }
+@media (prefers-contrast: more) {
+  .aipg-modal { border:2px solid #000; }
+  .btn-primary { background:#003366; }
+}

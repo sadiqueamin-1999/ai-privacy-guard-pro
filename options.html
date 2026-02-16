@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Privacy Guard Pro — Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 20px; color:#111; }
+    h1 { margin-top: 0; }
+    fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; }
+    legend { padding: 0 6px; color:#333; }
+    label { display:block; margin:.5rem 0 .25rem; }
+    input[type="text"], input[type="password"], select { width: 100%; max-width: 520px; padding:8px; border:1px solid #ccc; border-radius:6px; }
+    button { padding:8px 12px; border:0; border-radius:8px; background:#0067c0; color:#fff; cursor:pointer; }
+    button.secondary { background:#e0e0e0; color:#111; }
+    .row { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
+    .lists { display:flex; gap:24px; flex-wrap:wrap; }
+    ul { list-style: none; padding-left: 0; }
+    li { display:flex; justify-content:space-between; gap:8px; align-items:center; padding:6px 0; border-bottom:1px dashed #eee; }
+    li button { background:#d9534f; }
+    small.muted { color:#666; }
+  </style>
+</head>
+<body>
+  <h1>AI Privacy Guard Pro — Options</h1>
+
+  <fieldset>
+    <legend>Policy Profile</legend>
+    <div class="row">
+      <div>
+        <label for="profileSelect">Profile</label>
+        <select id="profileSelect"></select>
+      </div>
+      <div>
+        <label for="adminPin">Admin PIN (Strict)</label>
+        <input type="password" id="adminPin" placeholder="e.g., 1234" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="trackUsers">Track Users (metadata)</label>
+        <select id="trackUsers">
+          <option value="off">Off</option>
+          <option value="anonymized">Anonymized</option>
+          <option value="full">Full (local only)</option>
+        </select>
+      </div>
+      <div>
+        <label for="trackPrompts">Track Prompts</label>
+        <select id="trackPrompts">
+          <option value="off">Off</option>
+          <option value="anonymized">Anonymized (hash only)</option>
+          <option value="full">Full (local only)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="approvedAiUrl">Approved AI URL (for redirect)</label>
+        <input type="text" id="approvedAiUrl" placeholder="https://your-approved-ai.company" />
+        <small class="muted">Shown as “Use Approved AI” in the router.</small>
+      </div>
+      <div>
+        <label for="userRole">User Role (metadata)</label>
+        <select id="userRole">
+          <option value="">Unset</option>
+          <option>Engineering</option>
+          <option>Data Science</option>
+          <option>Finance</option>
+          <option>Legal</option>
+          <option>HR</option>
+          <option>Sales</option>
+          <option>Marketing</option>
+          <option>Operations</option>
+          <option>IT / Security</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="saveProfile">Save Profile</button>
+      <button id="openDirectory" class="secondary" type="button">Open AI Directory</button>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Approval Lists</legend>
+    <div class="lists">
+      <div>
+        <h3>Allowlist</h3>
+        <div class="row">
+          <input type="text" id="allowInput" placeholder="example.com" />
+          <button id="addAllow" type="button">Add</button>
+        </div>
+        <ul id="allowList"></ul>
+      </div>
+
+      <div>
+        <h3>Blocklist</h3>
+        <div class="row">
+          <input type="text" id="blockInput" placeholder="example.com" />
+          <button id="addBlock" type="button">Add</button>
+        </div>
+        <ul id="blockList"></ul>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Logs</legend>
+    <div class="row">
+      <button id="exportLogs" type="button">Export Logs (JSON)</button>
+      <button id="clearLogs" type="button" class="secondary">Clear Logs</button>
+    </div>
+  </fieldset>
+
+  <script src="options.js"></script>
+</body>
+</html>

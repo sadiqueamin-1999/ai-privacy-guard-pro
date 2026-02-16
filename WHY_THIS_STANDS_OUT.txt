@@ -1,0 +1,123 @@
+AI Privacy Guard Pro — Why This Stands Out
+==========================================
+
+Executive Summary
+-----------------
+AI Privacy Guard Pro is not a “domain blocker” or a simple warning banner. It is an
+enterprise-grade, privacy-first AI governance layer that runs in the browser:
+• Guides employees toward safer AI usage in real time (not after-the-fact policy docs)
+• Gives security leaders visibility and evidence (metadata-only) without harvesting content
+• Bridges the gap between policy and behaviour with adaptive risk, policy profiles, PIN overrides,
+  and a friction-minimising UX to keep productivity high
+
+
+Top 10 Differentiators
+-----------------------------------------------
+1) Two-Layer Detection
+   • Layer 1: Domain detection (e.g., chatgpt.com, claude.ai) with suffix-aware matching
+   • Layer 2: In‑app AI usage detection across regular sites (Gmail/Docs/Slack/etc.)
+     via safe heuristic signals (UI elements, AI buttons, prompt areas) - without reading content
+
+2) Risk Scoring Engine (Configurable, Additive, Capped)
+   • Combines: AI domain, in‑app AI presence, internal site hints, and sensitive-field hints
+   • Per-profile thresholds (Strict/Confirm/Allow) and tunable weights to reflect policy
+   • Feels like a real DLP/CASB “policy brain” instead of binary blocking
+
+3) Policy Profiles Built In
+   • Strict: PIN-gated high risk + blocking shield on cancel
+   • Confirm: Light-touch, warn + proceed (keeps work flowing)
+   • Allow: Silent by default (no prompts) except for Blocklist policy sites
+
+4) Admin PIN Override Where It Matters
+   • For high-risk actions in Strict, users must enter a PIN (local policy, no server dependency)
+   • “Cancel” in high-risk shows a blocking overlay (no silent bypass)
+
+5) Consent Window + Cooldown (No Prompt Fatigue)
+   • Once approved, user won’t be nagged on that tab+host for a set window (e.g., 10 minutes)
+   • Deduplication gates, per-tab consent, and router suppression protect UX
+
+6) Redirect to Approved AI (Guidance > Blocking)
+   • One-click “Use Approved AI” routes users to an organisation-approved tool
+   • Admin-configured URL (e.g., internal RAG portal, Copilot, Claude, etc.)
+   • Motivates the safe path rather than dead-end blocks
+
+7) Privacy by Design (Default)
+   • Tracking OFF by default
+   • If enabled: “Anonymized” only logs SHA-256 prompt hashes or basic metadata
+   • Nothing leaves the device unless an admin explicitly exports logs
+
+8) Audit-Ready Evidence (Metadata Only)
+   • Local logs: timestamp, domain, detection type (domain/UI), router opened, decision
+     (proceed/cancel/redirect), role, anonymous user ID — NO content captured by default
+   • One-click export (JSON) for GRC/CISO review
+
+9) Suffix-Aware Allowlist/Blocklist per Profile
+   • Lists are bound to the active profile (real enterprise nuance)
+   • “Allow” silences prompts, “Blocklist” elevates risk to 100 across paths (domain+UI)
+
+10) Production-Grade Stability in Modern Web Apps
+   • Works across iframes / about:blank/srcdoc frames (all_frames + match_about_blank)
+   • Safe messaging guards: never crash if extension APIs are unavailable in a subframe
+   • “Immediate reprompt” on policy switch — re-evaluates open tabs on the spot
+
+Core Features (At a Glance)
+---------------------------
+• Domain & in‑app AI usage detection (no content reading)
+• Risk scoring with configurable weights & thresholds
+• Profiles: Strict / Confirm / Allow (with per-profile allow/block lists)
+• Admin PIN & blocking shield for high-risk interactions
+• Consent window & cooldown to prevent repeat prompts
+• “Use Approved AI” redirect button (configurable URL)
+• Local-only logs; optional anonymized/full modes (still local)
+• AI Directory (curated list + custom additions)
+• Options UI for admins: policy, roles, lists, logs, directory
+• Accessibility-conscious overlay: keyboard and ARIA-friendly
+
+Why This Is “Enterprise” (Not Just Another Extension)
+-----------------------------------------------------
+1) Real policy expression: Profiles, thresholds, lists, PINs, redirects
+2) Evidence generation for GRC: metadata-only, exportable, explainable
+3) Least-privilege privacy model: default OFF telemetry; anonymized pathways
+4) Measurable UX quality: consent windows, deduplication, calming heuristics
+5) Extensibility & maintainability: tunable scores, curated directory, per-profile lists
+
+Security & Privacy Guarantees
+-----------------------------
+• No server calls, no third-party tracking — storage is local to the browser
+• Default behavior does not capture prompts or keystrokes
+• If admins enable anonymized tracking: prompt text → SHA-256 hash only
+• Admin PIN stored locally; no centralised secrets required for demo
+• “Blocklist -> risk=100” applies consistently in both domain and UI paths
+
+Architecture at a Glance
+------------------------
+• Manifest V3 (service worker)
+  - background.js: policy brain (detection, scoring, routing, logging, consent)
+  - content.js: page observer, UI renderer, safe-message guarded
+  - utils.js: risk, storage wrappers, hashing, user ID, logging
+• Options UI: profile editing, lists, logs, directory, approved-URL, role
+• AI Directory: curated domains + custom entries
+• Robust injection: all_frames + match_about_blank; early runtime checks for complex SPAs
+
+How We Bridge Policy → Behaviour (The “Why It Works”)
+-----------------------------------------------------
+• Detect: Domain & in-app signals raise contextual awareness
+• Decide: Score risk from multiple factors; map to profile policies
+• Guide: Warn, require PIN, or redirect to approved AI
+• Respect: Avoid spam via consent windows; keep people working
+• Prove: Exportable metadata logs create accountability and visibility
+
+Measurable Outcomes
+-------------------------------------------
+• Reduced unsafe AI usage without blunt-force blocking
+• Clear evidence trail: who (role), where (domain), what (type), when (timestamp), action (decision)
+• Faster adoption of approved AI (redirect button)
+• Fewer false positives / fewer prompts (consent & cooldown)
+• Policy agility (change profile → immediate reprompt)
+
+Roadmap
+---------------------------------
+• Central policy sync (optional enterprise console)
+• Role-based default profiles and allowlists from directory services
+• Prebuilt rule packs (Finance/Legal/HR) for instant deployment
+• More heuristic packs for in‑app AI (new selectors, model‑agnostic)
